@@ -9,6 +9,9 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
+        {{-- Alpine JS --}}
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
         {{-- Tailwindcss --}}
         <link rel="stylesheet" href="{{ asset('css/main.css') }}">
 
@@ -85,6 +88,16 @@
             <div class="content">
                 <div class="title m-b-md">
                     <h1 class="text-teal-500">Laravel</h1>
+                    <div x-data="{ open: false }">
+                        <button class="bg-teal-500 text-xl text-white py-2 px-4 focus:outline-none" @click="open = true">Open Dropdown</button>
+                    
+                        <ul
+                            x-show="open"
+                            @click.away="open = false"
+                        >
+                            <p class="text-xl">Dropdown Body</p>
+                        </ul>
+                    </div>
                 </div>
 
                 <div class="links">
